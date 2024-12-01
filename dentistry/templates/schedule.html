@@ -1,0 +1,6 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% for appointment in appointments %}
+  <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
+{% endfor %}
+{% endblock %}

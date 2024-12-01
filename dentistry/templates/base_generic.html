@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block title %}
+		<title>Dentistry</title>
+		{% endblock %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/doctor_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/doctor_details.css' %}">
+	</head>
+	<body>
+		{% block navbar %}
+		<div class="navbar">      
+			<ul class="navbar-list">
+				<li><a class="navbar-list__link" href="{% url 'index' %}">Home</a></li>
+				<li><a class="navbar-list__link" href="{% url 'doctor_list' %}">All doctors</a></li>
+        <li><a class="navbar-list__link" href="{% url 'schedule' %}">Schedule</a></li>
+			</ul>
+		</div>
+		{% endblock %}
+		<div>{% block content %}{% endblock %}</div>
+	</body>
+</html>

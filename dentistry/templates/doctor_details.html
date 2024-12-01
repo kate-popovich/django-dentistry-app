@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %} {% block content %}
+  <h1 class="page-title">{{ doctor.first_name }} {{ doctor.last_name }}</h1>
+  <p class="detail-info">Middle name: {{ doctor.middle_name }}</p>
+  <p class="detail-info">Day of birth: {{ doctor.date_of_birth }}</p>
+  <p class="detail-info">SNILS: {{ doctor.snils }}</p>
+  <p class="detail-info">INN: {{ doctor.inn }}</p>
+{% for appointment in appointments %}
+  <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
+{% endfor %}
+  <a href="{% url 'doctor_list' %}">Back to doctor list</a>
+{% endblock %}
