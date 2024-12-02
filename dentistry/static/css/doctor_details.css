@@ -1,7 +1,36 @@
-.page-title {
-  color: #333;
+.detail-info span {
+  font-weight: 600;
 }
 
 .detail-info {
-  color: #666;
+  margin: 16px 0;
+}
+
+.info-wrapper {
+  background-color: #fff;
+  margin: 10px 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-title {
+  margin: 0;
+}
+
+.appointment_list {
+  list-style: none;
+  padding: 0;
+}
+
+.appointment_list li {
+  margin: 16px 0;
+}
+
+.back-link {
+  padding: 0 20px;
+}
+
+.back-link a {
+  float: right;
 }

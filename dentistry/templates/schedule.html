@@ -1,6 +1,14 @@
 {% extends "base_generic.html" %}
+
 {% block content %}
-{% for appointment in appointments %}
-  <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
-{% endfor %}
+<h1 class="page-title">Schedule</h1>
+<ul class="doctor-list">
+  {% for appointment in appointments %}
+    <li class="doctor-item">
+      <a href="{% url 'appointment_details' appointment.appointment.id %}">
+       {{ appointment.patient_name }} {{ appointment.appointment_datetime}}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 {% endblock %}

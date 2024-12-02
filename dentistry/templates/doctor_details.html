@@ -1,13 +1,33 @@
-{% extends "base_generic.html" %} {% block content %}
+{% extends "base_generic.html" %}
+
+{% block content %}
   <h1 class="page-title">{{ doctor.first_name }} {{ doctor.last_name }}</h1>
-  <p class="detail-info">Middle name: {{ doctor.middle_name }}</p>
-  <p class="detail-info">Day of birth: {{ doctor.date_of_birth }}</p>
-  <p class="detail-info">SNILS: {{ doctor.snils }}</p>
-  <p class="detail-info">INN: {{ doctor.inn }}</p>
-{% for appointment in appointments %}
-  <a href="{% url 'appointment_details' appointment.appointment.id %}">
-    <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
-  </a>
-{% endfor %}
-  <a href="{% url 'doctor_list' %}">Back to doctor list</a>
+  <div class="info-wrapper">
+    <h2 class="info-title">Info</h2>
+    <p class="detail-info"><span class="detail-info-title">
+      Middle name:</span> {{ doctor.middle_name }}
+    </p>
+    <p class="detail-info">
+      <span>Day of birth:</span> {{ doctor.date_of_birth }}
+    </p>
+    <p class="detail-info">
+      <span>SNILS:</span> {{ doctor.snils }}
+    </p>
+    <p class="detail-info">
+      <span>INN:</span> {{ doctor.inn }}
+    </p>
+  </div>
+  <div class="info-wrapper">
+    <h2 class="info-title">Appointments</h2>
+      <ul class="appointment_list">
+        {% for appointment in appointments %}
+          <a href="{% url 'appointment_details' appointment.appointment.id %}">
+            <li>{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
+          </a>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="back-link">
+      <a href="{% url 'doctor_list' %}">Back to doctor list</a>
+    </div>
 {% endblock %}

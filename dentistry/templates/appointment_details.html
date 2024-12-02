@@ -1,8 +1,39 @@
-{% extends "base_generic.html" %} {% block content %}
-  <h1>Детали приёма</h1>
-  <p><strong>Доктор:</strong> {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</p>
-  <p><strong>Пациент:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</p>
-  <p><strong>Дата и время:</strong> {{ appointment.appointment_datetime }}</p>
-  <a href="{% url 'doctor_details' appointment.doctor.id %}">Вернуться к врачу</a>
-  <a href="{% url 'patient_details' appointment.patient.id %}">Вернуться к пациенту</a>
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 class="page-title">Appointment</h1>
+  <div class="info-wrapper">
+    <h2 class="info-title">Info</h2>
+    <p>
+      <strong>Doctor:</strong>
+      <a href="{% url 'doctor_details' appointment.doctor.id %}">
+        {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}
+      </a>
+    </p>
+    <p>
+      <strong>Patient:</strong>
+      <a href="{% url 'patient_details' appointment.patient.id %}">
+        {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}
+      </a>
+    </p>
+    <p>
+      <strong>Date and time:</strong> {{ appointment.appointment_datetime }}
+    </p>
+  </div>
+    <div class="info-wrapper">
+      <h2 class="info-title">Procedures</h2>
+      <ul class="appointment_list">
+        {% for procedure in procedures %}
+            <li>
+                <strong>{{ procedure.title }}</strong> - {{ procedure.cost }} руб.
+            </li>
+          
+        {% empty %}
+            <li>No assigned procedures</li>
+        {% endfor %}
+      </ul>
+    </div>
+  <div class="back-link">
+    <a href="{% url 'schedule' %}">Back to schedule</a>
+  </div>
 {% endblock %}

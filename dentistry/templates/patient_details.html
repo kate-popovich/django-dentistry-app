@@ -1,3 +1,20 @@
-{% extends "base_generic.html" %} {% block content %}
+{% extends "base_generic.html" %}
+
+{% block content %}
   <h1 class="page-title">{{ patient.first_name }} {{ patient.last_name }}</h1>
+  <div class="info-wrapper">
+    <h2 class="info-title">Info</h2>
+    <p class="detail-info"><span class="detail-info-title">
+      Middle name:</span> {{ patient.middle_name }}
+    </p>
+    <p class="detail-info">
+      <span>Day of birth:</span> {{ patient.date_of_birth }}
+    </p>
+    <p class="detail-info">
+      <span>Allergies:</span> {{ patient.allergies_info }}
+    </p>
+    <p class="detail-info">
+      <span>Discount:</span> {{ patient.discount_info }}
+    </p>
+  </div>
 {% endblock %}
