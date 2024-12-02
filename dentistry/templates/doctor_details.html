@@ -5,7 +5,9 @@
   <p class="detail-info">SNILS: {{ doctor.snils }}</p>
   <p class="detail-info">INN: {{ doctor.inn }}</p>
 {% for appointment in appointments %}
-  <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
+  <a href="{% url 'appointment_details' appointment.appointment.id %}">
+    <li class="">{{ appointment.patient_name }} {{ appointment.appointment_datetime}}</li>
+  </a>
 {% endfor %}
   <a href="{% url 'doctor_list' %}">Back to doctor list</a>
 {% endblock %}

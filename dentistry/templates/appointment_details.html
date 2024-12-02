@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %} {% block content %}
+  <h1>Детали приёма</h1>
+  <p><strong>Доктор:</strong> {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</p>
+  <p><strong>Пациент:</strong> {{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</p>
+  <p><strong>Дата и время:</strong> {{ appointment.appointment_datetime }}</p>
+  <a href="{% url 'doctor_details' appointment.doctor.id %}">Вернуться к врачу</a>
+  <a href="{% url 'patient_details' appointment.patient.id %}">Вернуться к пациенту</a>
+{% endblock %}

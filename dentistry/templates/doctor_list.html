@@ -3,7 +3,7 @@
 <ul class="doctor-list">
 	{% for doctor in doctor_list %}
 	<li class="doctor-item">
-		<a href="{% url 'doctor_detail' doctor.id %}">
+		<a href="{% url 'doctor_details' doctor.id %}">
 			{{ doctor.first_name }} {{ doctor.last_name }}
 		</a>
 	</li>

@@ -59,3 +59,21 @@ def schedule(request):
   }
 
   return render(request, 'schedule.html', context)
+
+def appointment_details(request, id):
+  appointment = get_object_or_404(Appointment, id=id)
+
+  context = {
+    'appointment': appointment,
+  }
+
+  return render(request, 'appointment_details.html', context)
+
+def patient_details(request, id):
+  patient = get_object_or_404(Patient, id=id)
+
+  context = {
+    'patient': patient,
+  }
+
+  return render(request, 'patient_details.html', context)
